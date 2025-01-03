@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - name: Generate Markdown Files
-      - run: |
+        run: |
           rm -rf docs/
           for recipe in recipes/**/*.cook; do
               markdown_file=$(echo "$recipe" | sed 's/.cook$/.md/' | sed 's#recipes/#docs/#')
