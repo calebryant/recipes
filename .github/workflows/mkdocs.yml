@@ -24,13 +24,17 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - name: Configure Cook CLI
+        run: |
+          curl -L https://github.com/cooklang/cookcli/releases/download/v0.8.0/cook-x86_64-unknown-linux-gnu.tar.gz | tar -xzvf - -C /usr/local/bin
+          tar -xvzf cook_cli.tar.gz
       - name: Generate Markdown Files
         run: |
           rm -rf docs/
           for recipe in recipes/**/*.cook; do
               markdown_file=$(echo "$recipe" | sed 's/.cook$/.md/' | sed 's#recipes/#docs/#')
               mkdir -p "$(dirname "$markdown_file")"
-              ~/Downloads/cook recipe -f markdown "$recipe" > "$markdown_file"
+              cook recipe -f markdown "$recipe" > "$markdown_file"
           done
-      - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
+      # - run: pip install mkdocs-material 
+      # - run: mkdocs gh-deploy --force
