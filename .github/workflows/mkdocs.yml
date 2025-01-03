@@ -37,6 +37,6 @@ jobs:
       - name: Commit and push changes
         run: |
           git add -A
-          git diff-index --quiet HEAD || git commit -m 'bla'
+          git diff-index --quiet HEAD || git commit -m "generated docs"
       - run: pip install mkdocs-material 
       - run: mkdocs gh-deploy --force
