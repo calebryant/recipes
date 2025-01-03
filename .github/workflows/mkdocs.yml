@@ -34,6 +34,8 @@ jobs:
               mkdir -p "$(dirname "$markdown_file")"
               cook recipe -f markdown "$recipe" > "$markdown_file"
           done
+      - name: Commit and push changes
+        run: |
           git add .
           git commit -m "$(date) updating docs"
           git push
