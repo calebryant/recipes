@@ -35,5 +35,5 @@ jobs:
               mkdir -p "$(dirname "$markdown_file")"
               cook recipe -f markdown "$recipe" > "$markdown_file"
           done
-      # - run: pip install mkdocs-material 
-      # - run: mkdocs gh-deploy --force
+      - run: pip install mkdocs-material 
+      - run: mkdocs gh-deploy --force
