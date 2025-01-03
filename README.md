@@ -1,3 +1,3 @@
-# recipes
+# Cook Book
 
-https://cooklang.org/
+https://cooklang.org
