@@ -26,11 +26,11 @@ jobs:
             mkdocs-material-
       - name: Generate Markdown Files
       - run: |
-        rm -rf docs/
-        for recipe in recipes/**/*.cook; do
-            markdown_file=$(echo "$recipe" | sed 's/.cook$/.md/' | sed 's#recipes/#docs/#')
-            mkdir -p "$(dirname "$markdown_file")"
-            ~/Downloads/cook recipe -f markdown "$recipe" > "$markdown_file"
-        done
+          rm -rf docs/
+          for recipe in recipes/**/*.cook; do
+              markdown_file=$(echo "$recipe" | sed 's/.cook$/.md/' | sed 's#recipes/#docs/#')
+              mkdir -p "$(dirname "$markdown_file")"
+              ~/Downloads/cook recipe -f markdown "$recipe" > "$markdown_file"
+          done
       - run: pip install mkdocs-material 
       - run: mkdocs gh-deploy --force
