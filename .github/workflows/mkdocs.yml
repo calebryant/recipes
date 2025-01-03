@@ -36,8 +36,7 @@ jobs:
           done
       - name: Commit and push changes
         run: |
-          git add .
-          git commit -m "$(date) updating docs"
-          git push
+          git add -A
+          git diff-index --quiet HEAD || git commit -m 'bla'
       - run: pip install mkdocs-material 
       - run: mkdocs gh-deploy --force
